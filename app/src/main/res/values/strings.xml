@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">
         <b>Mobile App by Courtney Hoppus</b>
-        \n\n I am 42 which is the answer,
-        \n not looking forward to my birthday for once.
     </string>
+    <string name="edit_message">Enter Name</string>
+    <string name="button_send">Send</string>
 </resources>
