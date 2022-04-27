@@ -1,7 +1,9 @@
 package com.hoppus.ad340
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.GridView
@@ -18,6 +20,10 @@ class MainActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.button)
         button.setOnClickListener {
+            Log.d("click", button.text as String)
+            val intent = Intent(this, AboutActivity::class.java)
+            intent.putExtra("info", "passed info")
+            startActivity(intent)
             Toast.makeText(this, "You clicked " + button.text, Toast.LENGTH_SHORT).show()
         }
 
