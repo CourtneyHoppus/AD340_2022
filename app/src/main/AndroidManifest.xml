@@ -10,9 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AD340">
         <activity
+            android:name=".MovieListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayMessageActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".AboutActivity"
             android:exported="false"
             android:label="@string/title_activity_about"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AD340.NoActionBar" />
         <activity
             android:name=".MainActivity"

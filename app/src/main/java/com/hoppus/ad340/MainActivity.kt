@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.GridView
 import android.widget.Toast
+
+const val EXTRA_MESSAGE = "com.hoppus.ad340.MESSAGE"
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,18 +21,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.button)
-        button.setOnClickListener {
-            Log.d("click", button.text as String)
-            val intent = Intent(this, AboutActivity::class.java)
-            intent.putExtra("info", "passed info")
-            startActivity(intent)
-            Toast.makeText(this, "You clicked " + button.text, Toast.LENGTH_SHORT).show()
-        }
-
         gridView = findViewById(R.id.gridView)
         val mainAdapter = MainAdapter(this, buttonNames)
         gridView.adapter = mainAdapter
 
+    }
+
+    // text entered sent to new view
+    fun sendMessage(view: View) {
+        val editText =findViewById<EditText>(R.id.editTextTextPersonName)
+        val message = editText.text.toString()
+        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, message)
+        }
+        startActivity(intent)
+    }
+
+    // go to movie list view
+    fun movieListView(view: View) {
+        val button = findViewById<Button>(R.id.button)
+        val message = button.text.toString() + " list"
+        val intent = Intent(this, MovieListActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, message)
+        }
+        startActivity(intent)
     }
 }
