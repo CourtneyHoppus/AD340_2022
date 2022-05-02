@@ -164,7 +164,7 @@ class MovieListActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         val data = ArrayList<MovieViewModel>()
         for (movie in movies) {
-            data.add(MovieViewModel(movie[0]))
+            data.add(MovieViewModel(movie[0], movie[1]))
         }
         val adapter = MovieAdapter(data)
         recyclerView.adapter = adapter

@@ -1,4 +1,4 @@
 package com.hoppus.ad340
 
-data class MovieViewModel(val text: String) {
+data class MovieViewModel(val text: String, val year: String) {
 }

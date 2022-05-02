@@ -19,6 +19,8 @@ class MovieAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movieViewModel = movieList[position]
         holder.movieTextView.text = movieViewModel.text
+        holder.movieYearView.text = movieViewModel.year
+
     }
 
     override fun getItemCount(): Int {
@@ -27,6 +29,7 @@ class MovieAdapter(
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val movieTextView: TextView = itemView.findViewById(R.id.movieTextView)
+        val movieYearView: TextView = itemView.findViewById(R.id.movieYearView)
     }
 
 }
