@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#ffecb8">
+    android:background="#ffecb8"
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -34,8 +34,8 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="#90d2d8"
         android:minHeight="48dp"
-        android:text="@string/button_send"
         android:onClick="sendMessage"
+        android:text="@string/button_send"
         android:textColor="#37474F"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,13 +46,13 @@
         android:id="@+id/movieButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#90d2d8"
         android:minHeight="48dp"
         android:onClick="movieListView"
-        android:text="Movie List"
+        android:text="@string/movie_list"
         android:textColor="#37474F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,14 +62,15 @@
         android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:columnWidth="190dp"
         android:gravity="center"
         android:horizontalSpacing="16dp"
         android:numColumns="2"
         android:stretchMode="spacingWidth"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/movieButton"
+        tools:layout_editor_absoluteX="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
