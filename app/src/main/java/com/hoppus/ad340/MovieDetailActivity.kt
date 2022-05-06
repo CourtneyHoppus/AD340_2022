@@ -17,6 +17,10 @@ class MovieDetailActivity : AppCompatActivity() {
         val director = extras.getString("DIRECTOR") as String
         val description = extras.getString("DESCRIPTION") as String
 
+        val actionBar = supportActionBar
+        actionBar!!.title = "$title Movie Details"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewDetail)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = MovieDetailAdapter(title, year, director, description)

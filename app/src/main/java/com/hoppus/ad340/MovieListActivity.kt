@@ -167,6 +167,10 @@ class MovieListActivity : AppCompatActivity() {
 
         movieList()
 
+        val actionBar = supportActionBar
+        actionBar!!.title = "Zombie Movie List"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = MovieAdapter(data) { position: Int -> onClick(position)}
