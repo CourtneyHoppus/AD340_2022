@@ -1,10 +1,10 @@
 package com.hoppus.ad340
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.text.FieldPosition
 
 class MovieListActivity : AppCompatActivity() {
     private val data = ArrayList<MovieViewModel>()
@@ -159,7 +159,7 @@ class MovieListActivity : AppCompatActivity() {
     )
     private fun movieList() {
         for (movie in movies)
-            data.add(MovieViewModel(movie[0], movie[1], movie[3], movie[4]))
+            data.add(MovieViewModel(movie[0], movie[1], movie[2], movie[4]))
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -169,7 +169,25 @@ class MovieListActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = MovieAdapter(data)
+        val adapter = MovieAdapter(data) { position: Int -> onClick(position)}
         recyclerView.adapter = adapter
+    }
+
+    private fun onClick(position: Int) {
+        val movie = data[position]
+        val title = movie.title
+        val year = movie.year
+        val director = movie.director
+        val description = movie.description
+        val extras = Bundle().apply {
+            putString("TITLE", title)
+            putString("YEAR", year)
+            putString("DIRECTOR", director)
+            putString("DESCRIPTION", description)
+        }
+        val intent = Intent(this, MovieDetailActivity::class.java).apply {
+            putExtras(extras)
+        }
+        startActivity(intent)
     }
 }
