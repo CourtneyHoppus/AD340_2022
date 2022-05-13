@@ -58,6 +58,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
+    <Button
+        android:id="@+id/trafficCamerasButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#90d2d8"
+        android:minHeight="48dp"
+        android:onClick="trafficCamView"
+        android:text="@string/traffic_cameras"
+        android:textColor="#37474F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieButton" />
+
     <GridView
         android:id="@+id/gridView"
         android:layout_width="match_parent"
@@ -70,7 +86,7 @@
         android:horizontalSpacing="16dp"
         android:numColumns="2"
         android:stretchMode="spacingWidth"
-        app:layout_constraintTop_toBottomOf="@+id/movieButton"
+        app:layout_constraintTop_toBottomOf="@+id/trafficCamerasButton"
         tools:layout_editor_absoluteX="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

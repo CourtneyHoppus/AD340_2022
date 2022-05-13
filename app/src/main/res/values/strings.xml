@@ -19,4 +19,6 @@
     <string name="year">Year</string>
     <string name="director">Director</string>
     <string name="description">Description</string>
+    <string name="traffic_cameras">Traffic Cameras</string>
+    <string name="title_activity_traffic_camera">TrafficCameraActivity</string>
 </resources>

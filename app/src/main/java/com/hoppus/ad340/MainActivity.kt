@@ -39,10 +39,14 @@ class MainActivity : AppCompatActivity() {
 
     // go to movie list view
     fun movieListView(view: View) {
-        val button = findViewById<Button>(R.id.button)
-        val message = button.text.toString() + " list"
-        val intent = Intent(this, MovieListActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, message)
+        val intent = Intent(this, MovieListActivity::class.java)
+        startActivity(intent)
+    }
+
+    // go to traffic cam view
+    fun trafficCamView(view: View) {
+        val intent = Intent(this, TrafficCamActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, "Traffic Cameras")
         }
         startActivity(intent)
     }
