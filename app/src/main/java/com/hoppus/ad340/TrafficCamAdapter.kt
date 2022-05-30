@@ -21,8 +21,8 @@ class TrafficCamAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val camera = cameraList[position]
         holder.textView.text = camera.description
-        val imageURL = camera.imageURL()
-        Picasso.get().load(imageURL).into(holder.imageView)
+        val imageUrl = camera.imageUrl()
+        Picasso.get().load(imageUrl).into(holder.imageView)
     }
 
     override fun getItemCount(): Int {
