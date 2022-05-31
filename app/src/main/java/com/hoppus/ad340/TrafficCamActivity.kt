@@ -2,6 +2,8 @@ package com.hoppus.ad340
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -14,11 +16,21 @@ class TrafficCamActivity : AppCompatActivity() {
         actionBar!!.title = intent.getStringExtra(EXTRA_MESSAGE)
         actionBar.setDisplayHomeAsUpEnabled(true)
 
-        TrafficCamModel.loadData(this) { data ->
-            val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            val adapter = TrafficCamAdapter(data)
-            recyclerView.adapter = adapter
+        if (Utilities.isConnected(this)) {
+            Log.d("CONNECTION", "Connected")
+            TrafficCamModel.loadData(this) { data ->
+                val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+                recyclerView.layoutManager = LinearLayoutManager(this)
+                val adapter = TrafficCamAdapter(data)
+                recyclerView.adapter = adapter
+            }
+        }
+        else {
+            Log.d("CONNECTION", "Not Connected")
+            setContentView(R.layout.activity_display_message)
+            findViewById<TextView>(R.id.textView).apply {
+                context.getString(R.string.noConnection).also { text = it }
+            }
         }
     }
 }
